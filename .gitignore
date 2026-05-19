@@ -1,0 +1,7 @@
+.DS_Store
+*.webp
+*.mp4
+*.png
+# Ignore model/system generated files if any
+.git
+.gemini

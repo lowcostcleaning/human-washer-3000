@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления Primus-Human-3000</title>
+    <!-- Google Fonts: Orbitron for Sci-Fi numbers, Inter for UI -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="stars-bg"></div>
+    
+    <div class="app-container">
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="brand">primus</span>
+                <span class="model">human-3000</span>
+            </div>
+            <div class="system-status-header">
+                <div class="status-light-indicator idle" id="header-status-light"></div>
+                <span class="status-text-val" id="header-status-text">СИСТЕМА ГОТОВА</span>
+            </div>
+            <div class="serial-no">S/N: 2026-HUMAN-01</div>
+        </header>
+
+        <!-- MAIN DASHBOARD GRID -->
+        <main class="dashboard-grid">
+            
+            <!-- LEFT PANEL: CONTROLS & SETTINGS -->
+            <section class="panel controls-panel">
+                <h2 class="panel-title">Режимы стирки / Wash Programs</h2>
+                
+                <div class="programs-selector">
+                    <button class="btn-program active" data-program="detox">
+                        <div class="prog-icon">🧘</div>
+                        <div class="prog-details">
+                            <span class="prog-name">Деликатный детокс</span>
+                            <span class="prog-desc">Мягкое очищение от соцсетей</span>
+                        </div>
+                    </button>
+                    
+                    <button class="btn-program" data-program="friday">
+                        <div class="prog-icon">🕺</div>
+                        <div class="prog-details">
+                            <span class="prog-name">Пятничный отжим</span>
+                            <span class="prog-desc">Вытряхивание рабочей недели</span>
+                        </div>
+                    </button>
+                    
+                    <button class="btn-program" data-program="turbo">
+                        <div class="prog-icon">⚡</div>
+                        <div class="prog-details">
+                            <span class="prog-name">Турбо-Креатив</span>
+                            <span class="prog-desc">Раскрутка мозга до 1200 об/мин</span>
+                        </div>
+                    </button>
+                    
+                    <button class="btn-program" data-program="portal">
+                        <div class="prog-icon">🌀</div>
+                        <div class="prog-details">
+                            <span class="prog-name">Сингулярность</span>
+                            <span class="prog-desc">Телепортация в мир чистых носков</span>
+                        </div>
+                    </button>
+                </div>
+
+                <div class="panel-divider"></div>
+
+                <h2 class="panel-title">Параметры / Parameters</h2>
+                
+                <div class="sliders-group">
+                    <div class="slider-control">
+                        <div class="slider-label">
+                            <span>Температура воды</span>
+                            <span class="slider-val" id="val-temp">30°C</span>
+                        </div>
+                        <input type="range" id="slider-temp" min="0" max="100" value="30" step="5">
+                        <div class="slider-ticks">
+                            <span>Лед</span>
+                            <span>Комнатная</span>
+                            <span>Эспрессо</span>
+                            <span>Лава</span>
+                        </div>
+                    </div>
+
+                    <div class="slider-control">
+                        <div class="slider-label">
+                            <span>Скорость отжима</span>
+                            <span class="slider-val" id="val-spin">800 об/мин</span>
+                        </div>
+                        <input type="range" id="slider-spin" min="0" max="1600" value="800" step="100">
+                        <div class="slider-ticks">
+                            <span>Без отжима</span>
+                            <span>Бережно</span>
+                            <span>Турбо</span>
+                            <span>Сверхзвук</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-divider"></div>
+
+                <h2 class="panel-title">Добавки / Additives</h2>
+                <div class="additives-grid">
+                    <div class="additive-card active" data-additive="optimism">
+                        <div class="add-icon">😊</div>
+                        <div class="add-name">Жидкий оптимизм</div>
+                    </div>
+                    <div class="additive-card" data-additive="motivation">
+                        <div class="add-icon">🔥</div>
+                        <div class="add-name">Мотивация 100%</div>
+                    </div>
+                    <div class="additive-card" data-additive="magic">
+                        <div class="add-icon">✨</div>
+                        <div class="add-name">Волшебная пыльца</div>
+                    </div>
+                    <div class="additive-card" data-additive="peace">
+                        <div class="add-icon">🍃</div>
+                        <div class="add-name">Дзен-эссенция</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CENTER/RIGHT PANEL: THE WASHER DRUM -->
+            <section class="drum-section">
+                <div class="status-badge" id="drum-status-badge">Ожидание</div>
+                
+                <!-- Washing Machine Outer Body -->
+                <div class="washer-body">
+                    <!-- Control panel above the door -->
+                    <div class="washer-top-panel">
+                        <div class="washer-screen">
+                            <div class="screen-label">RPM</div>
+                            <div class="screen-value" id="disp-rpm">0000</div>
+                            <div class="screen-label">TIME</div>
+                            <div class="screen-value" id="disp-time">00:00</div>
+                        </div>
+                        <div class="washer-physical-knob"></div>
+                        <div class="emergency-stop-btn" id="emergency-btn" title="Аварийная остановка!">
+                            <div class="stop-inner"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- The Big Circular Door & Drum -->
+                    <div class="washer-door-container">
+                        <div class="door-frame">
+                            <div class="drum-rotate-wrapper" id="drum-rotator">
+                                <!-- The User Photo inside the drum -->
+                                <img src="2026-05-19 21.38.19.jpg" alt="Human wash target" class="drum-background-photo">
+                                
+                                <!-- Floating Bubbles container -->
+                                <div class="bubbles-overlay" id="bubbles-container"></div>
+                            </div>
+                            
+                            <!-- Water overlay that rises up -->
+                            <div class="water-overlay-container" id="water-overlay">
+                                <svg class="water-wave" viewBox="0 0 120 28">
+                                    <defs>
+                                        <pattern id="water-wave-pattern" width="120" height="28" patternUnits="userSpaceOnUse">
+                                            <path d="M0 15 Q 30 0, 60 15 T 120 15 L 120 28 L 0 28 Z" fill="rgba(0, 191, 255, 0.45)"/>
+                                            <path d="M0 15 Q 30 8, 60 15 T 120 15 L 120 28 L 0 28 Z" fill="rgba(30, 144, 255, 0.35)"/>
+                                        </pattern>
+                                    </defs>
+                                    <rect width="100%" height="100%" fill="url(#water-wave-pattern)" />
+                                </svg>
+                                <div class="water-body-fill"></div>
+                            </div>
+                            
+                            <!-- Glass shine & reflections for realism -->
+                            <div class="door-glass-shine"></div>
+                        </div>
+                        
+                        <!-- Door handle indicator -->
+                        <div class="door-handle"></div>
+                    </div>
+                </div>
+
+                <!-- Big Main Action Buttons -->
+                <div class="main-actions">
+                    <button class="btn-start" id="start-btn">ЗАПУСТИТЬ СТИРКУ</button>
+                    
+                    <button class="btn-audio-toggle" id="audio-toggle-btn" title="Вкл/Выкл звук">
+                        <span id="audio-icon">🔊</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- RIGHT PANEL: MONOSPACE TERMINAL LOGS -->
+            <section class="panel terminal-panel">
+                <div class="panel-header-flex">
+                    <h2 class="panel-title">Логи очистки / Bio-Diagnostics</h2>
+                    <span class="terminal-blinker">● REC</span>
+                </div>
+                
+                <div class="terminal-logs-window" id="terminal-logs">
+                    <div class="log-line system">[SYSTEM] Подключение к Primus-Human-3000 установлено...</div>
+                    <div class="log-line system">[SYSTEM] Био-детектор обнаружил человека внутри барабана.</div>
+                    <div class="log-line system">[SYSTEM] Состояние субъекта: Улыбается, обувь чистая, обута.</div>
+                    <div class="log-line warn">[WARN] Обнаружены кроссовки в стирке! Но выглядит стильно, пропускаем.</div>
+                    <div class="log-line info">[INFO] Выберите режим стирки и нажмите ЗАПУСТИТЬ СТИРКУ.</div>
+                </div>
+
+                <div class="telemetry-grid">
+                    <div class="telemetry-item">
+                        <div class="tel-label">G-Force</div>
+                        <div class="tel-val" id="tel-gforce">1.0 G</div>
+                    </div>
+                    <div class="telemetry-item">
+                        <div class="tel-label">Уровень счастья</div>
+                        <div class="tel-val" id="tel-happiness">85%</div>
+                    </div>
+                    <div class="telemetry-item">
+                        <div class="tel-label">Чистота кармы</div>
+                        <div class="tel-val" id="tel-karma">42%</div>
+                    </div>
+                    <div class="telemetry-item">
+                        <div class="tel-label">Потеря носков</div>
+                        <div class="tel-val" id="tel-socks">0%</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+        
+        <!-- FOOTER -->
+        <footer class="app-footer">
+            <span>Проект разработан специально для веселой стирки души и тела. © 2026 Primus Industries.</span>
+            <span>Абсолютно экологично. Ни один носок не пострадал (почти).</span>
+        </footer>
+    </div>
+
+    <!-- Script file -->
+    <script src="script.js"></script>
+</body>
+</html>
