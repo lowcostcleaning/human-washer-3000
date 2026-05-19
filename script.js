@@ -34,7 +34,7 @@ let bubbleTimer = null;
 let telemetryTimer = null;
 let currentProgram = 'detox';
 let timeRemaining = 0; // in seconds
-let isAudioEnabled = false;
+let isAudioEnabled = true;
 
 // Program Presets
 const programs = {
@@ -775,4 +775,15 @@ function updateTelemetry(secondsElapsed = 0) {
     // Karma
     let karma = 42 + (secondsElapsed * 2.5);
     telKarma.innerText = `${Math.min(100, Math.floor(karma))}%`;
+}
+
+// --- INITIALIZE ON LOAD ---
+if (isAudioEnabled) {
+    audioIcon.innerText = '🔊';
+    audioToggleBtn.style.background = 'rgba(0, 243, 255, 0.15)';
+    audioToggleBtn.style.borderColor = 'var(--neon-cyan)';
+} else {
+    audioIcon.innerText = '🔇';
+    audioToggleBtn.style.background = 'rgba(255, 255, 255, 0.05)';
+    audioToggleBtn.style.borderColor = 'rgba(255, 255, 255, 0.1)';
 }
