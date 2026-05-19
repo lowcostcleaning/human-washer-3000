@@ -929,3 +929,146 @@ input[type="range"]::-webkit-slider-thumb:hover {
     90% { transform: translate(3px, 3px) rotate(0deg); }
     100% { transform: translate(2px, -3px) rotate(-1deg); }
 }
+
+/* --- RESPONSIVE MOBILE OPTIMIZATIONS --- */
+@media (max-width: 600px) {
+    .app-container {
+        margin: 10px 6px;
+        padding: 14px;
+        gap: 14px;
+    }
+    
+    .app-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+        padding: 16px 14px;
+        text-align: center;
+    }
+    
+    .system-status-header {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .panel {
+        padding: 16px;
+    }
+    
+    .washer-body {
+        width: 100%;
+        max-width: 360px;
+        height: 460px;
+        padding: 16px;
+        border-radius: 24px;
+        margin-bottom: 16px;
+    }
+    
+    .washer-top-panel {
+        margin-bottom: 20px;
+        height: 70px;
+        padding: 0 12px;
+    }
+    
+    .washer-screen {
+        margin-right: 10px;
+        height: 44px;
+        padding: 0 8px;
+    }
+    
+    .screen-value {
+        font-size: 16px;
+    }
+    
+    .washer-physical-knob, .emergency-stop-btn {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .stop-inner {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .washer-door-container {
+        width: 240px;
+        height: 240px;
+    }
+    
+    .door-frame {
+        width: 230px;
+        height: 230px;
+        border-width: 8px;
+    }
+    
+    .drum-rotate-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .door-glass-shine::before {
+        width: 180px;
+        height: 80px;
+    }
+    
+    .main-actions {
+        width: 100%;
+    }
+    
+    .btn-start {
+        padding: 14px;
+        font-size: 14px;
+    }
+    
+    .btn-audio-toggle {
+        width: 50px;
+    }
+    
+    .terminal-logs-window {
+        height: 240px;
+        padding: 12px;
+        font-size: 11px;
+    }
+    
+    .telemetry-grid {
+        gap: 8px;
+    }
+    
+    .telemetry-item {
+        padding: 8px 10px;
+    }
+    
+    .tel-val {
+        font-size: 14px;
+    }
+    
+    .app-footer {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 16px 10px;
+    }
+}
+
+@media (max-width: 375px) {
+    .washer-body {
+        max-width: 310px;
+        height: 410px;
+    }
+    .washer-door-container {
+        width: 200px;
+        height: 200px;
+    }
+    .door-frame {
+        width: 190px;
+        height: 190px;
+    }
+    .drum-rotate-wrapper {
+        width: 165px;
+        height: 165px;
+    }
+    .door-glass-shine::before {
+        width: 140px;
+        height: 60px;
+    }
+}
